@@ -43,6 +43,11 @@ button {
   padding-right: 15px;
   margin: auto;
 }
+:hover,
+:focus {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 250ms;
+}
 /*----------header----------*/
 .header {
   background-color: #fff;
@@ -81,10 +86,18 @@ button {
 .header-list-item .current {
   color: var(--accent-color);
 }
+.current:after {
+  content: "";
+  display: block;
+  margin-top: 28px;
+  border-bottom: 4px solid var(--accent-color);
+  border-radius: 2px;
+  /* width: 100%; */
+}
 .header-list {
   display: flex;
   padding-top: 32px;
-  padding-bottom: 32px;
+  /* padding-bottom: 32px; */
 }
 .header-list-item:not(:last-child) {
   margin-right: 50px;
@@ -244,6 +257,28 @@ button {
 }
 .doing-list-item:not(:last-child) {
   margin-right: 30px;
+}
+.doing-text-link {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: rgba(47, 48, 58, 0.8);
+  padding-top: 27px;
+  padding-bottom: 27px;
+}
+
+.link-block {
+  position: relative;
+}
+.link-block .doing-text-link {
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  width: 100%;
 }
 /*----------our comand----------*/
 .comand-section {
@@ -448,6 +483,7 @@ button {
   color: var(--primary-white-color);
   background-color: var(--accent-color);
 }
+/*----------cards----------*/
 .potfolio-list {
   display: flex;
   flex-wrap: wrap;
@@ -492,4 +528,32 @@ button {
   font-size: 16px;
   line-height: 1.88;
   letter-spacing: 0.03em;
+}
+.overlay-text {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  color: var(--primary-white-color);
+}
+.cards-block {
+  position: relative;
+  overflow: hidden;
+}
+.cards-block:hover .overlay {
+  transform: translatex(0);
+}
+.overlay {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  padding: 0 24px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-color);
+  transform: translateY(100%);
+  transition: transform 250ms ease;
+  
 }
